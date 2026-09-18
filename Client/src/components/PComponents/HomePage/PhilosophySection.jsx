@@ -74,7 +74,7 @@ export const PhilosophySection = () => {
         <div ref={leftColRef} className="order-2 lg:order-1 relative">
           <div className="aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl relative border border-slate-100">
             <img 
-              alt="Lead Dentist Dr. Sarah Jenkins consulting patient" 
+              alt="Lead Dentist Dr. Arun Kumar consulting patient" 
               className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" 
               src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=1200"
             />
@@ -83,7 +83,7 @@ export const PhilosophySection = () => {
             {/* Experience Pill Overlay */}
             <div className="absolute bottom-6 left-6 right-6 glass-dark p-4 rounded-2xl border border-white/20 text-white flex items-center justify-between">
               <div>
-                <p className="font-serif text-lg font-bold">Dr. Sarah Jenkins, DDS</p>
+                <p className="font-serif text-lg font-bold">Dr. Arun Kumar, DDS</p>
                 <p className="text-xs text-cyan-300">Harvard School of Dental Medicine</p>
               </div>
               <span className="bg-[#0ea5e9] text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
@@ -118,10 +118,10 @@ export const PhilosophySection = () => {
           <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
             <div>
               <p className="font-serif italic text-2xl text-[#0f172a] font-medium tracking-wide">
-                Sarah Jenkins
+                Arun Kumar
               </p>
               <p className="text-xs font-semibold tracking-widest uppercase text-[#64748b] mt-1">
-                Dr. Sarah Jenkins, Lead Clinician & Founder
+                Dr. Arun Kumar, Lead Clinician & Founder
               </p>
             </div>
             

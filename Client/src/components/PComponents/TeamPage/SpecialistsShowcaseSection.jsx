@@ -36,7 +36,7 @@ export const SpecialistsShowcaseSection = () => {
     {
       id: 1,
       role: 'Implantologist & Lead Clinician',
-      name: 'Dr. Sarah Jenkins',
+      name: 'Dr. Arun Kumar',
       tags: ['Full-Mouth Rehab', 'Bone Grafting', '15+ Yrs Exp'],
       bio: 'With over 15 years of dedicated experience in complex implantology, Dr. Jenkins specializes in full-mouth rehabilitation and advanced bone grafting. Her meticulous approach ensures functional longevity and aesthetic perfection for every patient.',
       image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=1000',
@@ -54,7 +54,7 @@ export const SpecialistsShowcaseSection = () => {
     {
       id: 3,
       role: 'Cosmetic Dentist & Architect',
-      name: 'Dr. Elena Rostova',
+      name: 'Dr. Blulah Joy',
       tags: ['Smile Design', 'Ultra-Thin Veneers', 'Aesthetic Harmony'],
       bio: 'Renowned for her architectural approach to smile design, Dr. Rostova blends fine artistry with clinical science. She specializes in ultra-thin veneers and non-destructive aesthetic enhancements, delivering radiant results tailored to individual facial harmony.',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000',

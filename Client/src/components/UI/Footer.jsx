@@ -72,7 +72,7 @@ export const Footer = () => {
         {/* Developer Contact Social Links */}
         <div className="flex flex-col items-center md:items-end gap-2">
           <span className="text-xs font-semibold uppercase tracking-widest text-slate-400">
-            Designed & Developed by <span className="text-[#0ea5e9]">Ashis Chetia</span>
+            Designed & Developed by <span className="text-[#0ea5e9]">Dinesh</span>
           </span>
           <div className="flex items-center gap-4 pt-1">
             {developerLinks.map((link) => {

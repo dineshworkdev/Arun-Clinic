@@ -54,7 +54,7 @@ export const ReviewsFeedSection = () => {
     },
     {
       id: 3,
-      name: 'Robert Harrison',
+      name: 'Hariharan',
       role: 'Verified Patient',
       rating: 5,
       avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400',

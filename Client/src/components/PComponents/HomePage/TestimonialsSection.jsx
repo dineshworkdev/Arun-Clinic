@@ -5,21 +5,21 @@ export const TestimonialsSection = () => {
   const testimonials = [
     {
       quote: "The level of care and attention to detail at Arun Dental Clinic is simply unmatched. They completely transformed my smile with veneers, and the entire process felt more like visiting a luxury spa than a dental clinic. Truly life-changing.",
-      name: "Elena Rodriguez",
+      name: "Arya",
       role: "Smile Makeover Patient",
       image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400",
       rating: 5
     },
     {
       quote: "As someone who had severe dental anxiety, Dr. Jenkins and her team completely put me at ease with their gentle sedation techniques. My implant procedure was flawless and painless.",
-      name: "Marcus Vance",
+      name: "Ramesh",
       role: "Dental Implant Patient",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400",
       rating: 5
     },
     {
       quote: "State-of-the-art diagnostic technology combined with real human empathy. I've recommended Arun Dental Clinic to my entire family and colleagues.",
-      name: "Sophia Chen",
+      name: "Sreemathi",
       role: "Preventative & Cosmetic Patient",
       image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=400",
       rating: 5

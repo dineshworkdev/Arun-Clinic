@@ -43,7 +43,7 @@ export const TeamHeroSection = () => {
         </h1>
 
         <p className="text-base sm:text-xl font-normal text-slate-800 leading-relaxed max-w-2xl mx-auto">
-          Discover the clinical excellence behind Arun Dental Clinic. Our world-class specialists combine advanced 3D technology with meticulous artistry to deliver unparalleled aesthetic and surgical outcomes.
+          Discover the clinical excellence behind Dental Clinic. Our world-class specialists combine advanced 3D technology with meticulous artistry to deliver unparalleled aesthetic and surgical outcomes.
         </p>
 
         <div className="mt-8 flex items-center justify-center gap-6 text-xs font-bold uppercase tracking-widest text-[#0ea5e9]">

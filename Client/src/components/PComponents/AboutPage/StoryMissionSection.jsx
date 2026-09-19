@@ -62,7 +62,7 @@ export const StoryMissionSection = () => {
 
             <div className="space-y-5 text-base sm:text-lg font-normal text-slate-800 leading-relaxed">
               <p>
-                Founded on an unwavering commitment to uncompromising clinical quality, Arun Dental Clinic began with a clear vision: to elevate the dental experience from an intimidating medical chore into a comforting, specialized service.
+                Founded on an unwavering commitment to uncompromising clinical quality, Dental Clinic began with a clear vision: to elevate the dental experience from an intimidating medical chore into a comforting, specialized service.
               </p>
               <p>
                 Our founding surgeons recognized that anxiety and sterile, cold clinical environments often deterred patients from seeking the care they deserved. We set out to build a sanctuary of oral health—a place where cutting-edge 3D technology meets warm, compassionate attention.
@@ -91,7 +91,7 @@ export const StoryMissionSection = () => {
               </div>
 
               <div className="pt-6 border-t border-slate-100 relative z-10 flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#64748b]">Arun Dental Clinic Executive Board</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#64748b]">Dental Clinic Executive Board</span>
                 <span className="w-2 h-2 rounded-full bg-[#0ea5e9]"></span>
               </div>
             </div>

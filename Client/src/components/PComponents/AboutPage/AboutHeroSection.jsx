@@ -37,7 +37,7 @@ export const AboutHeroSection = () => {
         <div ref={textColRef} className="lg:col-span-6 z-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0ea5e9]/10 border border-[#0ea5e9]/20 text-[#0ea5e9] text-xs font-bold uppercase tracking-widest mb-6">
             <Sparkles className="w-4 h-4 text-[#0ea5e9]" />
-            <span>The Arun Dental Clinic Difference</span>
+            <span>The Dental Clinic Difference</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#0f172a] leading-tight tracking-tight mb-6">
@@ -46,7 +46,7 @@ export const AboutHeroSection = () => {
           </h1>
 
           <p className="text-base sm:text-lg font-normal text-slate-800 leading-relaxed mb-8 max-w-lg">
-            We believe that exceptional dental care is an art form. At Arun Dental Clinic, we combine clinical precision with a serene, luxurious environment to redefine your expectations of modern dentistry.
+            We believe that exceptional dental care is an art form. At Dental Clinic, we combine clinical precision with a serene, luxurious environment to redefine your expectations of modern dentistry.
           </p>
 
           <div className="flex items-center gap-4">

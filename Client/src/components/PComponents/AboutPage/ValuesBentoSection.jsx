@@ -61,7 +61,7 @@ export const ValuesBentoSection = () => {
           Patient-First Philosophy
         </h2>
         <p className="text-base sm:text-lg font-normal text-slate-700">
-          The three foundational pillars guiding every procedure, consultation, and patient interaction at Arun Dental Clinic.
+          The three foundational pillars guiding every procedure, consultation, and patient interaction at Dental Clinic.
         </p>
       </div>
 

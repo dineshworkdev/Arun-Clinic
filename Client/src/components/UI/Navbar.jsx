@@ -40,7 +40,7 @@ export const Navbar = ({ currentPage = 'contact', setCurrentPage }) => {
               </svg>
             </div>
             <h2 className="text-[#0f172a] text-2xl font-serif font-bold tracking-tight">
-              Arun Dental Clinic
+              Dental Clinic
             </h2>
           </button>
 

@@ -14,7 +14,7 @@ export const PhilosophySection = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Reveal doctor column & text column
-      gsap.fromTo(leftColRef.current, 
+      gsap.fromTo(leftColRef.current,
         { y: 50, opacity: 0 },
         {
           y: 0,
@@ -28,7 +28,7 @@ export const PhilosophySection = () => {
         }
       );
 
-      gsap.fromTo(rightColRef.current, 
+      gsap.fromTo(rightColRef.current,
         { y: 50, opacity: 0 },
         {
           y: 0,
@@ -67,19 +67,19 @@ export const PhilosophySection = () => {
 
   return (
     <section ref={sectionRef} className="py-24 lg:py-32 px-6 md:px-12 lg:px-20 xl:px-32 w-full max-w-[1440px] mx-auto space-y-16" id="philosophy">
-      
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-        
+
         {/* Left Column: Doctor / Consultation Photo */}
         <div ref={leftColRef} className="order-2 lg:order-1 relative">
           <div className="aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl relative border border-slate-100">
-            <img 
-              alt="Lead Dentist Dr. Arun Kumar consulting patient" 
-              className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" 
-              src="https://www.pexels.com/photo/man-in-blue-scrub-suit-5888149/"
+            <img
+              alt="Lead Dentist Dr. Arun Kumar consulting patient"
+              className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+              src="Client/public/faces/arun.jpg"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/40 via-transparent to-transparent"></div>
-            
+
             {/* Experience Pill Overlay */}
             <div className="absolute bottom-6 left-6 right-6 glass-dark p-4 rounded-2xl border border-white/20 text-white flex items-center justify-between">
               <div>
@@ -91,7 +91,7 @@ export const PhilosophySection = () => {
               </span>
             </div>
           </div>
-          
+
           {/* Decorative Glow Element */}
           <div className="absolute -bottom-8 -left-8 w-64 h-64 bg-[#0ea5e9]/10 rounded-full blur-3xl -z-10"></div>
         </div>
@@ -124,7 +124,7 @@ export const PhilosophySection = () => {
                 Dr. Arun Kumar, Lead Clinician & Founder
               </p>
             </div>
-            
+
             <div className="flex items-center gap-3">
               <div className="text-right">
                 <p className="text-xs font-bold text-[#0f172a]">100% Digital</p>
@@ -138,7 +138,7 @@ export const PhilosophySection = () => {
 
       {/* Relocated Trust Cards Grid with GSAP Stagger */}
       <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-slate-100">
-        
+
         {/* Card 1 */}
         <div className="bg-white p-6 rounded-2xl border border-slate-200/70 shadow-xs hover:shadow-md transition-shadow flex items-center gap-4 text-left">
           <div className="w-12 h-12 rounded-xl bg-[#0ea5e9]/10 text-[#0ea5e9] flex items-center justify-center shrink-0">

@@ -101,7 +101,7 @@ export const SpecialistsShowcaseSection = () => {
                     alt={doc.name}
                     onError={(e) => {
                       e.target.onerror = null;
-                      e.target.src = 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=1000';
+                      e.target.src = 'Client/public/faces/arun.jpg';
                     }}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />

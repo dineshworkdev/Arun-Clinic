@@ -39,7 +39,7 @@ export const SpecialistsShowcaseSection = () => {
       name: 'Dr. Arun Kumar',
       tags: ['Full-Mouth Rehab', 'Bone Grafting', '15+ Yrs Exp'],
       bio: 'With over 15 years of dedicated experience in complex implantology, Dr. Jenkins specializes in full-mouth rehabilitation and advanced bone grafting. Her meticulous approach ensures functional longevity and aesthetic perfection for every patient.',
-      image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=1000',
+      image: '/faces/arun.jpg',
       alignment: 'normal',
     },
     {
@@ -101,7 +101,7 @@ export const SpecialistsShowcaseSection = () => {
                     alt={doc.name}
                     onError={(e) => {
                       e.target.onerror = null;
-                      e.target.src = 'Client/public/faces/arun.jpg';
+                      e.target.src = '/faces/arun.jpg';
                     }}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />

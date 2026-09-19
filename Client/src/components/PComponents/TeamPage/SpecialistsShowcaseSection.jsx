@@ -45,7 +45,7 @@ export const SpecialistsShowcaseSection = () => {
     {
       id: 2,
       role: 'Microscopic Endodontist',
-      name: 'Dr. Marcus Thorne',
+      name: 'Dr. Nicholas',
       tags: ['Root Canal Therapy', 'Microsurgery', 'Pain-Free Tech'],
       bio: 'Dr. Thorne is a leading expert in microscopic root canal therapy. Utilizing state-of-the-art 3D imaging and micro-invasive techniques, he focuses on pain-free procedures and saving compromised natural dentition with supreme accuracy.',
       image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=1000',
@@ -57,7 +57,7 @@ export const SpecialistsShowcaseSection = () => {
       name: 'Dr. Blulah Joy',
       tags: ['Smile Design', 'Ultra-Thin Veneers', 'Aesthetic Harmony'],
       bio: 'Renowned for her architectural approach to smile design, Dr. Rostova blends fine artistry with clinical science. She specializes in ultra-thin veneers and non-destructive aesthetic enhancements, delivering radiant results tailored to individual facial harmony.',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000',
+      image: 'https://images.pexels.com/photos/31043311/pexels-photo-31043311.jpeg',
       alignment: 'normal',
     },
   ];

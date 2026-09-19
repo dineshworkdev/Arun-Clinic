@@ -76,7 +76,7 @@ export const PhilosophySection = () => {
             <img 
               alt="Lead Dentist Dr. Arun Kumar consulting patient" 
               className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" 
-              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=1200"
+              src="https://www.pexels.com/photo/man-in-blue-scrub-suit-5888149/"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/40 via-transparent to-transparent"></div>
             

@@ -112,7 +112,7 @@ export const ContactBentoSection = () => {
                       name="fullName"
                       type="text"
                       required
-                      placeholder="e.g. Eleanor Vance"
+                      placeholder="e.g. Arun Kumar"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                       className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-base font-normal text-[#0f172a] focus:border-[#0ea5e9] focus:bg-white focus:ring-2 focus:ring-[#0ea5e9]/20 transition-all outline-none"
@@ -128,7 +128,7 @@ export const ContactBentoSection = () => {
                       name="phone"
                       type="tel"
                       required
-                      placeholder="e.g. +1 (555) 019-2834"
+                      placeholder="e.g. +91 8610951813"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-base font-normal text-[#0f172a] focus:border-[#0ea5e9] focus:bg-white focus:ring-2 focus:ring-[#0ea5e9]/20 transition-all outline-none"
@@ -146,7 +146,7 @@ export const ContactBentoSection = () => {
                     name="email"
                     type="email"
                     required
-                    placeholder="e.g. eleanor@example.com"
+                    placeholder="e.g. arun202@gmail.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-base font-normal text-[#0f172a] focus:border-[#0ea5e9] focus:bg-white focus:ring-2 focus:ring-[#0ea5e9]/20 transition-all outline-none"

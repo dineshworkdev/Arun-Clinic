@@ -12,7 +12,9 @@ export const ContactBentoSection = () => {
     fullName: '',
     phone: '',
     email: '',
-    interest: 'Aesthetic Consultation',
+    treatment: 'General Dentistry',
+    preferredDate: '',
+    preferredTime: '',
   });
 
   useEffect(() => {
@@ -45,9 +47,11 @@ export const ContactBentoSection = () => {
         fullName: '',
         phone: '',
         email: '',
-        interest: 'Aesthetic Consultation',
+        treatment: 'General Dentistry',
+        preferredDate: '',
+        preferredTime: '',
       });
-    }, 4000);
+    }, 6000);
   };
 
   return (
@@ -58,20 +62,41 @@ export const ContactBentoSection = () => {
         <div className="lg:col-span-7 bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-md flex flex-col justify-between">
           <div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0f172a] mb-2">
-              Begin Your Journey
+              Book Your Appointment
             </h2>
             <p className="text-base font-normal text-slate-800 mb-8">
-              Submit a concierge inquiry for tailored care.
+              Choose your preferred treatment and request an appointment with our dental team.
             </p>
 
             {submitted ? (
-              <div className="bg-emerald-50 border border-emerald-200 text-emerald-900 rounded-2xl p-6 flex items-start gap-4 mb-6">
-                <CheckCircle2 className="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" />
+              <div className="bg-emerald-50 border border-emerald-200 text-emerald-900 rounded-2xl p-6 sm:p-8 flex items-start gap-4 mb-6 transition-all duration-300">
+                <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="w-6 h-6 text-emerald-600" />
+                </div>
                 <div>
-                  <h4 className="font-bold text-base mb-1">Inquiry Received</h4>
-                  <p className="text-sm">
-                    Thank you for reaching out to Arun Dental Clinic. Our concierge care team will contact you within 24 hours to finalize your consultation.
+                  <h4 className="font-serif font-bold text-lg sm:text-xl text-emerald-950 mb-1">
+                    Appointment Request Received
+                  </h4>
+                  <p className="text-sm sm:text-base text-emerald-800 leading-relaxed">
+                    Thank you. Your appointment request has been submitted. Our team will contact you to confirm the date and time.
                   </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSubmitted(false);
+                      setFormData({
+                        fullName: '',
+                        phone: '',
+                        email: '',
+                        treatment: 'General Dentistry',
+                        preferredDate: '',
+                        preferredTime: '',
+                      });
+                    }}
+                    className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-700 hover:text-emerald-950 underline underline-offset-4 cursor-pointer"
+                  >
+                    Submit another request
+                  </button>
                 </div>
               </div>
             ) : (
@@ -79,61 +104,110 @@ export const ContactBentoSection = () => {
                 {/* Full Name & Phone Row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="flex flex-col">
-                    <label className="text-xs font-bold tracking-widest uppercase text-slate-700 mb-2">
+                    <label htmlFor="fullName" className="text-xs font-bold tracking-widest uppercase text-slate-700 mb-2">
                       Full Name
                     </label>
                     <input
+                      id="fullName"
+                      name="fullName"
                       type="text"
                       required
+                      placeholder="e.g. Eleanor Vance"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-base font-normal text-[#0f172a] focus:border-[#0ea5e9] focus:bg-white focus:ring-2 focus:ring-[#0ea5e9]/20 transition-all outline-none"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-base font-normal text-[#0f172a] focus:border-[#0ea5e9] focus:bg-white focus:ring-2 focus:ring-[#0ea5e9]/20 transition-all outline-none"
                     />
                   </div>
 
                   <div className="flex flex-col">
-                    <label className="text-xs font-bold tracking-widest uppercase text-slate-700 mb-2">
+                    <label htmlFor="phone" className="text-xs font-bold tracking-widest uppercase text-slate-700 mb-2">
                       Phone Number
                     </label>
                     <input
+                      id="phone"
+                      name="phone"
                       type="tel"
                       required
+                      placeholder="e.g. +1 (555) 019-2834"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-base font-normal text-[#0f172a] focus:border-[#0ea5e9] focus:bg-white focus:ring-2 focus:ring-[#0ea5e9]/20 transition-all outline-none"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-base font-normal text-[#0f172a] focus:border-[#0ea5e9] focus:bg-white focus:ring-2 focus:ring-[#0ea5e9]/20 transition-all outline-none"
                     />
                   </div>
                 </div>
 
                 {/* Email Field */}
                 <div className="flex flex-col">
-                  <label className="text-xs font-bold tracking-widest uppercase text-slate-700 mb-2">
+                  <label htmlFor="email" className="text-xs font-bold tracking-widest uppercase text-slate-700 mb-2">
                     Email Address
                   </label>
                   <input
+                    id="email"
+                    name="email"
                     type="email"
                     required
+                    placeholder="e.g. eleanor@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-base font-normal text-[#0f172a] focus:border-[#0ea5e9] focus:bg-white focus:ring-2 focus:ring-[#0ea5e9]/20 transition-all outline-none"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-base font-normal text-[#0f172a] focus:border-[#0ea5e9] focus:bg-white focus:ring-2 focus:ring-[#0ea5e9]/20 transition-all outline-none"
                   />
                 </div>
 
-                {/* Select Field */}
+                {/* Treatment / Service Dropdown Field */}
                 <div className="flex flex-col">
-                  <label className="text-xs font-bold tracking-widest uppercase text-slate-700 mb-2">
-                    Area of Interest
+                  <label htmlFor="treatment" className="text-xs font-bold tracking-widest uppercase text-slate-700 mb-2">
+                    Treatment / Service
                   </label>
                   <select
-                    value={formData.interest}
-                    onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-                    className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-base font-normal text-[#0f172a] focus:border-[#0ea5e9] focus:bg-white focus:ring-2 focus:ring-[#0ea5e9]/20 transition-all outline-none cursor-pointer"
+                    id="treatment"
+                    name="treatment"
+                    required
+                    value={formData.treatment}
+                    onChange={(e) => setFormData({ ...formData, treatment: e.target.value })}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-base font-normal text-[#0f172a] focus:border-[#0ea5e9] focus:bg-white focus:ring-2 focus:ring-[#0ea5e9]/20 transition-all outline-none cursor-pointer"
                   >
-                    <option value="Aesthetic Consultation">Aesthetic Consultation</option>
-                    <option value="Restorative Care">Restorative Care</option>
-                    <option value="Routine Wellness">Routine Wellness</option>
+                    <option value="General Dentistry">General Dentistry</option>
+                    <option value="Teeth Cleaning">Teeth Cleaning</option>
+                    <option value="Teeth Whitening">Teeth Whitening</option>
+                    <option value="Dental Implants">Dental Implants</option>
+                    <option value="Braces & Orthodontics">Braces & Orthodontics</option>
+                    <option value="Cosmetic Dentistry">Cosmetic Dentistry</option>
                     <option value="Other">Other</option>
                   </select>
+                </div>
+
+                {/* Preferred Date & Preferred Time Row */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="flex flex-col">
+                    <label htmlFor="preferredDate" className="text-xs font-bold tracking-widest uppercase text-slate-700 mb-2">
+                      Preferred Date
+                    </label>
+                    <input
+                      id="preferredDate"
+                      name="preferredDate"
+                      type="date"
+                      required
+                      min={new Date().toISOString().split('T')[0]}
+                      value={formData.preferredDate}
+                      onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
+                      className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-base font-normal text-[#0f172a] focus:border-[#0ea5e9] focus:bg-white focus:ring-2 focus:ring-[#0ea5e9]/20 transition-all outline-none cursor-pointer"
+                    />
+                  </div>
+
+                  <div className="flex flex-col">
+                    <label htmlFor="preferredTime" className="text-xs font-bold tracking-widest uppercase text-slate-700 mb-2">
+                      Preferred Time
+                    </label>
+                    <input
+                      id="preferredTime"
+                      name="preferredTime"
+                      type="time"
+                      required
+                      value={formData.preferredTime}
+                      onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
+                      className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-base font-normal text-[#0f172a] focus:border-[#0ea5e9] focus:bg-white focus:ring-2 focus:ring-[#0ea5e9]/20 transition-all outline-none cursor-pointer"
+                    />
+                  </div>
                 </div>
 
                 {/* Submit Button */}
@@ -141,7 +215,7 @@ export const ContactBentoSection = () => {
                   type="submit"
                   className="bg-[#0f172a] text-white w-full py-4 rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-[#0ea5e9] transition-all duration-300 flex items-center justify-center gap-2 shadow-lg active:scale-95 cursor-pointer mt-4"
                 >
-                  <span>Request Consultation</span>
+                  <span>Request Appointment</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </form>

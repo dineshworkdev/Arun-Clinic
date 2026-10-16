@@ -1,0 +1,19 @@
+{
+  "name": "dental-clinic-server",
+  "version": "1.0.0",
+  "description": "Secure AI Receptionist backend API for Dental Clinic",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node test_agent_tools.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "openai": "^4.86.1"
+  }
+}

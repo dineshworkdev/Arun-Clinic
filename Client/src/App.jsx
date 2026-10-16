@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -10,6 +10,7 @@ import AboutPage from './Pages/AboutPage';
 import TeamPage from './Pages/TeamPage';
 import ReviewsPage from './Pages/ReviewsPage';
 import ContactPage from './Pages/ContactPage';
+import AIReceptionist from './components/AIReceptionist';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,10 +46,10 @@ function App() {
     };
   }, []);
 
-  const handleNavigateToContact = () => {
+  const handleNavigateToContact = useCallback(() => {
     setCurrentPage('contact');
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  }, []);
 
   useEffect(() => {
     window.__navigateToContact = handleNavigateToContact;
@@ -76,6 +77,12 @@ function App() {
 
       {/* Footer Component */}
       <Footer onNavigateToContact={handleNavigateToContact} />
+
+      {/* Production-Quality AI Receptionist Chat UI */}
+      <AIReceptionist
+        onNavigateToContact={handleNavigateToContact}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 }

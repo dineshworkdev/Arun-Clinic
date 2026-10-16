@@ -45,7 +45,10 @@ export const AIChatMessage = ({ message, onActionClick, onBookService, onBookDoc
             {/* EMBEDDED APPOINTMENT FLOW */}
             {message.type === 'appointment_flow' && (
               <div className="mt-3">
-                <AppointmentFlow initialService={message.initialService} />
+                <AppointmentFlow
+                  initialService={message.initialService}
+                  initialDoctor={message.initialDoctor}
+                />
               </div>
             )}
 

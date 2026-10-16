@@ -6,14 +6,14 @@ import {
 import { CLINIC_SERVICES, CLINIC_DOCTORS, CLINIC_INFO } from './data/receptionistData';
 import AppointmentConfirmation from './AppointmentConfirmation';
 
-export const AppointmentFlow = ({ onComplete, initialService = null }) => {
+export const AppointmentFlow = ({ onComplete, initialService = null, initialDoctor = null }) => {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
   const [formData, setFormData] = useState({
     service: initialService || CLINIC_SERVICES[0].title,
-    doctor: 'Any Available Specialist',
+    doctor: initialDoctor || 'Any Available Specialist',
     date: new Date(Date.now() + 86400000).toISOString().split('T')[0], // tomorrow
     time: '10:30 AM',
     name: '',

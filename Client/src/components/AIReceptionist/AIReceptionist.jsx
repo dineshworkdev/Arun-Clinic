@@ -2,12 +2,12 @@ import React, { useState, useCallback } from 'react';
 import AIChatButton from './AIChatButton';
 import AIChatPanel from './AIChatPanel';
 import { QUICK_ACTIONS } from './data/receptionistData';
-import { sendChatMessage } from './services/chatApi';
+import { handlePatientMessage, getInitialConversationState } from '../../utils/dentalFaq';
 
 const INITIAL_WELCOME_MESSAGE = {
   id: 'welcome-1',
   sender: 'ai',
-  text: "Hi! I'm the AI Receptionist at Dental Clinic. How can I help you today?",
+  text: "Hello! Welcome to Dental Clinic. I'm the virtual receptionist. I can help with our treatments, clinic information, common dental questions, and appointment requests. How can I help you today?",
   type: 'welcome',
   timestamp: 'Just now',
   quickActions: QUICK_ACTIONS,
@@ -19,6 +19,7 @@ export const AIReceptionist = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [messages, setMessages] = useState([INITIAL_WELCOME_MESSAGE]);
   const [lastUserMessage, setLastUserMessage] = useState('');
+  const [conversationContext, setConversationContext] = useState(getInitialConversationState);
 
   const toggleOpen = () => {
     setIsOpen((prev) => {
@@ -39,16 +40,7 @@ export const AIReceptionist = () => {
     ]);
     setIsTyping(false);
     setLastUserMessage('');
-  };
-
-  // Helper to build history from message state
-  const buildHistory = (currentMessages) => {
-    return currentMessages
-      .filter((m) => m.text && (m.sender === 'user' || m.sender === 'ai'))
-      .map((m) => ({
-        role: m.sender === 'user' ? 'user' : 'assistant',
-        content: m.text,
-      }));
+    setConversationContext(getInitialConversationState());
   };
 
   const handleSendMessage = useCallback(async (text) => {
@@ -69,46 +61,44 @@ export const AIReceptionist = () => {
     setMessages((prev) => [...prev, userMessage]);
     setIsTyping(true);
 
-    try {
-      const history = buildHistory(messages);
-      const result = await sendChatMessage(trimmedText, history);
+    // Process using rule-based conversation engine with context
+    setTimeout(() => {
+      try {
+        const result = handlePatientMessage(trimmedText, conversationContext);
+        if (result.updatedState) {
+          setConversationContext(result.updatedState);
+        }
 
-      const isBookingIntent =
-        trimmedText.toLowerCase().includes('book') ||
-        trimmedText.toLowerCase().includes('appointment') ||
-        trimmedText.toLowerCase().includes('consultation');
-
-      const aiMessage = {
-        id: `ai-${Date.now()}`,
-        sender: 'ai',
-        text: result.message,
-        type: isBookingIntent ? 'appointment_flow' : 'text',
-        quickReplies: isBookingIntent
-          ? ['View Services', 'Clinic Hours', 'Contact Clinic']
-          : result.success
-          ? ['Book an Appointment', 'Our Services', 'Clinic Hours']
-          : ['Retry Message', 'Call Clinic (+91 98765 43210)', 'Clinic Hours'],
-        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-      };
-
-      setIsTyping(false);
-      setMessages((prev) => [...prev, aiMessage]);
-    } catch (err) {
-      console.error('[AI Receptionist Error]:', err);
-      setIsTyping(false);
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: `ai-err-${Date.now()}`,
+        const aiMessage = {
+          id: `ai-${Date.now()}`,
           sender: 'ai',
-          text: "I apologize, but our concierge connection was interrupted. Please try again or reach our clinic desk directly at +91 98765 43210.",
-          type: 'text',
-          quickReplies: ['Retry Message', 'Clinic Hours', 'Emergency Contact'],
+          text: result.message,
+          type: result.type || 'text',
+          initialService: result.initialService || null,
+          initialDoctor: result.initialDoctor || null,
+          quickReplies: result.quickReplies || ['Book an Appointment', 'Our Services', 'Clinic Hours'],
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        },
-      ]);
-    }
-  }, [messages]);
+        };
+
+        setIsTyping(false);
+        setMessages((prev) => [...prev, aiMessage]);
+      } catch (err) {
+        console.error('[AI Receptionist Error]:', err);
+        setIsTyping(false);
+        setMessages((prev) => [
+          ...prev,
+          {
+            id: `ai-err-${Date.now()}`,
+            sender: 'ai',
+            text: "I am here to help with our dental services, clinic hours, location, and appointment booking. What would you like to explore?",
+            type: 'text',
+            quickReplies: ['Book an Appointment', 'Our Services', 'Clinic Hours'],
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          },
+        ]);
+      }
+    }, 400);
+  }, [conversationContext]);
 
   const handleActionClick = useCallback((action) => {
     const actionLabel = action.label || action.id || action.intent;
@@ -127,6 +117,11 @@ export const AIReceptionist = () => {
       actionLabel === 'Book Priority Request' ||
       actionLabel === 'Book with a Specialist'
     ) {
+      setConversationContext((prev) => ({
+        ...prev,
+        isBookingActive: true,
+      }));
+
       const userMessage = {
         id: `user-${Date.now()}`,
         sender: 'user',
@@ -150,15 +145,21 @@ export const AIReceptionist = () => {
             timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
           },
         ]);
-      }, 500);
+      }, 400);
       return;
     }
 
-    // All other quick actions send a real query to backend
+    // All other quick actions send a real query through handleSendMessage
     handleSendMessage(actionLabel);
   }, [handleSendMessage, lastUserMessage]);
 
   const handleBookService = useCallback((serviceTitle) => {
+    setConversationContext((prev) => ({
+      ...prev,
+      isBookingActive: true,
+      lastTreatment: serviceTitle,
+    }));
+
     const userMessage = {
       id: `user-${Date.now()}`,
       sender: 'user',
@@ -181,10 +182,16 @@ export const AIReceptionist = () => {
       };
       setIsTyping(false);
       setMessages((prev) => [...prev, aiResponse]);
-    }, 500);
+    }, 400);
   }, []);
 
   const handleBookDoctor = useCallback((doctorName) => {
+    setConversationContext((prev) => ({
+      ...prev,
+      isBookingActive: true,
+      lastDoctor: doctorName,
+    }));
+
     const userMessage = {
       id: `user-${Date.now()}`,
       sender: 'user',
@@ -207,7 +214,7 @@ export const AIReceptionist = () => {
       };
       setIsTyping(false);
       setMessages((prev) => [...prev, aiResponse]);
-    }, 500);
+    }, 400);
   }, []);
 
   return (

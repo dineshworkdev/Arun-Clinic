@@ -12,6 +12,15 @@ export const CLINIC_INFO = {
     weekdays: 'Mon - Fri: 8:00 AM – 6:00 PM',
     weekends: 'Sat - Sun: Closed (Emergency on call)',
   },
+  landmark: 'Near Nava India Signal, convenient valet parking available on-site',
+  parking: 'Convenient valet parking is available on premises for all clinic visitors.',
+  policies: {
+    appointment: 'Appointments requested online or via the chat are provisional requests. The clinic concierge team will contact the patient within 2 business hours via phone or WhatsApp to confirm slot availability.',
+    cancellation: 'We request at least 24 hours prior notice for cancellations or rescheduling. There is no cancellation fee when notified 24 hours in advance.',
+    pricing: 'Because every patient has unique anatomical requirements, exact itemized treatment costs are provided following a comprehensive 3D diagnostic evaluation. We guarantee 100% transparent pricing with no hidden charges.',
+    paymentMethods: 'Cash, UPI, all major Credit/Debit cards, Net Banking, and flexible interest-free EMI financing options are available.',
+    insurance: 'We provide comprehensive itemized bills and clinical documentation to assist patients in claiming reimbursement from private dental health insurance providers.',
+  },
   availableDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
   timeSlots: [
     '09:00 AM',
